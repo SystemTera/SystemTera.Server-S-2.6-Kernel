@@ -1,0 +1,113 @@
+#
+# PNET configuration
+#
+
+menu "PNET support"
+
+config PNET
+	tristate "PNET support"
+	---help---
+	  If you want PNET support, you should say Y here.
+
+config PNET_NS_SPI
+	tristate "Netsilicon SPI Slave Packet Driver"
+	depends on (A9M9_BOARD_GEA9A7DEV || A9M9_BOARD_ETABEB || A9M9_BOARD_ETA_BEP || A9M9_BOARD_CMCX || A9M9_BOARD_BHZ_B || A9M9_BOARD_LWE_CU || A9M9_BOARD_KAP_BED) && PNET
+	help
+	  PNET Netsilicon SPI Slave Packet Driver
+
+config PNET_LOOPBACK
+	tristate "Loopback Packet Driver (EXPERIMENTAL)"
+	depends on EXPERIMENTAL && PNET
+	help
+	  PNET Loopback Packet Driver
+
+config PNET_LOCAL
+	tristate "Local Packet Driver (not functional) (EXPERIMENTAL)"
+	depends on EXPERIMENTAL && PNET
+	help
+	  PNET Local Packet Driver
+
+config PNET_FIFO
+	tristate "PNET Fifo Driver"
+	depends on PNET
+	help
+	  PNET Fifo Driver
+
+config PNET_SERIAL
+	tristate "PNET Serial Driver"
+	depends on PNET
+	help
+	  PNET Serial Driver
+
+config PNET_TS
+	tristate "PNET Touchscreen Driver"
+	depends on PNET && INPUT
+	help
+	  PNET Touchscreen Driver
+
+config PNET_RDEV
+	tristate "PNET Remote-Device Driver"
+#	depends on (A9M9_BOARD_GEA9A7DEV || A9M9_BOARD_CMCX || A9M9_BOARD_BHZ_B || A9M9_BOARD_LWE_CU || A9M9_BOARD_KAP_BED) && PNET
+	depends on PNET
+	help
+	  PNET Remote-Device Driver
+
+	  Caution: Enabling this driver is only allowed, if it is enabled on the remote side too. Else pnet will block.
+
+config PNET_RDEV_DEBUG
+	bool "PNET_RDEV debugging messages"
+	depends on PNET_RDEV
+	help
+	  Say Y here if you want the PNET_RDEV Driver to 
+	  produce a bunch of debug messages to the system log.  
+
+config PNET_SYSTEM
+	tristate "PNET System Driver"
+#	depends on (A9M9_BOARD_GEA9A7DEV || A9M9_BOARD_CMCX || A9M9_BOARD_BHZ_B || A9M9_BOARD_LWE_CU || A9M9_BOARD_KAP_BED) && PNET_RDEV
+	depends on PNET_RDEV
+	help
+	  PNET System Driver (over pnet_rdev)
+
+config PNET_SYSTEM_DEBUG
+	bool "PNET_SYSTEM debugging messages"
+	depends on PNET_SYSTEM
+	help
+	  Say Y here if you want the PNET_SYSTEM Driver to 
+	  produce a bunch of debug messages to the system log.  
+
+config PNET_CAN
+	tristate "PNET Can Driver"
+#	depends on (A9M9_BOARD_GEA9A7DEV || A9M9_BOARD_CMCX || A9M9_BOARD_BHZ_B || A9M9_BOARD_LWE_CU || A9M9_BOARD_KAP_BED) && PNET_RDEV
+	depends on PNET_RDEV
+	help
+	  PNET Can Driver (over pnet_rdev)
+
+config PNET_CAN_DEBUG
+	bool "PNET_CAN debugging messages"
+	depends on PNET_CAN
+	help
+	  Say Y here if you want the PNET_CAN Driver to 
+	  produce a bunch of debug messages to the system log.  
+
+config PNET_GE_CAN
+	tristate "PNET Ginzinger Can Layer (EXPERIMENTAL)"
+	depends on EXPERIMENTAL && PNET_CAN
+	help
+	  GE_CAN-Driver over PNET_CAN
+
+config PNET_GE_CAN_DEBUG
+	bool "PNET_GE_CAN debugging messages"
+	depends on PNET_GE_CAN
+	help
+	  Say Y here if you want the PNET_GE_CAN Driver to 
+	  produce a bunch of debug messages to the system log.  
+
+config PNET_DEBUG
+	bool "PNET drivers debugging messages"
+	depends on PNET
+	help
+	  Say Y here if you want the PNET Drivers to 
+	  produce a bunch of debug messages to the system log.  
+
+endmenu
+

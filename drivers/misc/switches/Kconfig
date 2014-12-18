@@ -1,0 +1,14 @@
+config GE_SWITCH_CLASS
+	tristate "Ginzinger: switch device class"
+	default n
+	help
+	  This driver implements a switch device class. It is only useful
+	  together with one of the switch drivers.
+
+config GE_SWITCH_GPIO
+	tristate "Ginzinger: GPIO switch"
+	depends on GENERIC_GPIO && GE_SWITCH_CLASS
+	default n
+	help
+	  This driver provides a switch class instance based on GPIOs and
+	  is used for platform switch devices such as dip switches.

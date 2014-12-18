@@ -1,0 +1,114 @@
+------------------------------------------------------------------------ 
+linux-2.6.35.3-imx-ge-14.01 - Don Jän  9 13:59:11 CET 2014 
+------------------------------------------------------------------------ 
+
+------------------------------------------------------------------------
+r7542 | manfreds | 2013-12-18 18:23:20 +0100 (Mit, 18. Dez 2013) | 5 Zeilen
+Geänderte Pfade:
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/arch/arm/mach-mx5/ge_imx53_modul/ge_imx53_tera_com.c
+
+kernel: linux-2.6.35.3-imx-ge: ge_imx53_tera_com:
+
+set rs485 receiver buffer interrupt threshold from 16/32 (default) to 1/32 (reduced overflow on 1MBaud)
+
+
+------------------------------------------------------------------------
+r7541 | manfreds | 2013-12-18 18:20:57 +0100 (Mit, 18. Dez 2013) | 6 Zeilen
+Geänderte Pfade:
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/arch/arm/mach-mx5/serial.c
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/arch/arm/mach-mx5/serial.h
+
+kernel: linux-2.6.35.3-imx-ge: mxc_serial platform config
+
+ * added support for configuring receiver interrupt threshold
+ * improvement: added error reporting
+
+
+------------------------------------------------------------------------
+r7534 | manfreds | 2013-12-10 18:15:27 +0100 (Die, 10. Dez 2013) | 1 Zeile
+Geänderte Pfade:
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/arch/arm/mach-mx5/ge_imx53_modul/ge_imx53_tera_com.c
+
+kernel: ge_imx53_tera_com: history-entry: add 8us delay after rs485 send enable, to be sure the driver (SN65HVD20D) is enabled
+------------------------------------------------------------------------
+r7533 | manfreds | 2013-12-10 16:36:43 +0100 (Die, 10. Dez 2013) | 1 Zeile
+Geänderte Pfade:
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/arch/arm/mach-mx5/ge_imx53_modul/ge_imx53_tera_com.c
+
+kernel: ge_imx53_tera_com: add 8us delay after rs485 send enable, to be sure the driver (SN65HVD20D) is enabled
+------------------------------------------------------------------------
+r7532 | manfreds | 2013-12-10 13:53:55 +0100 (Die, 10. Dez 2013) | 4 Zeilen
+Geänderte Pfade:
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/drivers/serial/mxc_uart.c
+
+kernel: mxc_uart:
+identified a loop in uart-isr, which increases the worst-case irq-latency massively. -> reduced maximum number iterations to 1 (instead of 256) (= removed loop)
+
+
+------------------------------------------------------------------------
+r7531 | manfreds | 2013-12-10 13:50:39 +0100 (Die, 10. Dez 2013) | 1 Zeile
+Geänderte Pfade:
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/drivers/serial/mxc_uart.c
+
+kernel: mxc_uart: typo
+------------------------------------------------------------------------
+r7526 | manfreds | 2013-12-06 16:50:01 +0100 (Fre, 06. Dez 2013) | 1 Zeile
+Geänderte Pfade:
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/arch/arm/configs/imx5_defconfig
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/arch/arm/mach-mx5/mx53_ard.c
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/arch/arm/mach-mx5/mx53_loco_pmic_mc34708.c
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/arch/arm/mach-mx5/pm_da9053.c
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/arch/arm/mach-mx5/serial.h
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/arch/arm/plat-mxc/Kconfig
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/arch/arm/plat-mxc/ahci_sata.c
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/arch/arm/plat-mxc/include/mach/ahci_sata.h
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/arch/arm/plat-mxc/include/mach/memory.h
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/arch/arm/plat-mxc/include/mach/mx5x.h
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/arch/arm/plat-mxc/include/mach/mxc_vpu.h
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/arch/arm/plat-mxc/pwm.c
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/arch/arm/plat-mxc/system.c
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/drivers/hwmon/imx_ahci_hwmon.c
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/drivers/media/video/mxc/capture/mxc_v4l2_capture.c
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/drivers/mfd/da9052-i2c.c
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/drivers/mxc/amd-gpu/common/pm4_microcode.inl
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/drivers/mxc/ipu3/ipu_common.c
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/drivers/mxc/vpu/mxc_vpu.c
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/drivers/video/logo/logo_frauscher_clut224.ppm
+
+kernel: linux-2.6.35.3-imx-ge: merged freescale-patches 201112
+------------------------------------------------------------------------
+r7460 | manfreds | 2013-11-25 13:51:07 +0100 (Mon, 25. Nov 2013) | 6 Zeilen
+Geänderte Pfade:
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/drivers/misc/Kconfig
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/drivers/misc/Makefile
+   A /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/drivers/misc/imx53_ramsetting.c (von /software/kernel/src/linux-2.6.20.21/trunk/drivers/misc/ns9xxx_genid.c:7459)
+
+kernel: imx53_ramsetting:
+
+Debug-Driver for reading RAM Setting of Freescale IMX53 from procfs (ONLY FOR DEBUG)
+
+ 
+
+------------------------------------------------------------------------
+r7455 | manfreds | 2013-11-13 12:39:06 +0100 (Mit, 13. Nov 2013) | 1 Zeile
+Geänderte Pfade:
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/arch/arm/mach-mx5/ge_imx53_modul/ge_imx53_modul.c
+
+kernel: ge_imx53_modul: external pullups on LTC_IRQ and LTC_PBSTAT are missing -> added internal 100k pullups
+------------------------------------------------------------------------
+r7422 | melchiorf | 2013-11-05 11:49:41 +0100 (Die, 05. Nov 2013) | 1 Zeile
+Geänderte Pfade:
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/drivers/video/logo/logo_wintersteiger_clut224.ppm
+
+kernel: logo: wintersteiger/sigma2: new text "First Class ... Ski & Board Tuning"
+------------------------------------------------------------------------
+r7344 | manfreds | 2013-10-08 16:18:34 +0200 (Die, 08. Okt 2013) | 1 Zeile
+Geänderte Pfade:
+   M /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge/localversion
+   A /software/kernel/src/linux-2.6.35.3-imx/tags/linux-2.6.35.3-imx-ge-13.10 (von /software/kernel/src/linux-2.6.35.3-imx/branches/linux-2.6.35.3-imx-ge:7342)
+   A /software/kernel/src/linux-2.6.35.3-imx/tags/linux-2.6.35.3-imx-ge-13.10/GE_CHANGES.TXT
+   M /software/kernel/src/linux-2.6.35.3-imx/tags/linux-2.6.35.3-imx-ge-13.10/localversion
+
+TAG: linux-2.6.35.3-imx-ge-13.10; BEGIN: linux-2.6.35.3-imx-ge-13.10+
+------------------------------------------------------------------------

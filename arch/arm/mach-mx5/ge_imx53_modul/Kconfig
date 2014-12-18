@@ -1,0 +1,53 @@
+
+config MACH_GE_IMX53_MODUL_GHZ
+	bool "Support 1GHZ on ge_imx53_modul (CAUTION!) (EXPERIMENTAL)"
+	depends on EXPERIMENTAL && MACH_GE_IMX53_MODUL
+	help
+	  Support for 1GHz CPU-Clock on ge_imx53_modul. 
+	  Caution: 1GHz for imx537 is out of specification.
+
+menu "ge_imx53_modul boards"
+
+config MACH_GE_IMX53_TESTBOARD
+	bool "Support for ge_imx53_modul-Testboard"
+	depends on MACH_GE_IMX53_MODUL
+	help
+	  Support for ge_imx53_modul-Testboard. (imx53_testboard) All module-independend Pads are declared as gpio
+
+config MACH_GE_IMX53_DEVBOARD
+	bool "Support for ge_imx53_modul-Devboard"
+	depends on MACH_GE_IMX53_MODUL
+	help
+	  Support for ge_imx53_modul-Devboard (imx53_devboard)
+
+config MACH_GE_IMX53_BEP2
+	bool "Support for ge_imx53_modul-BEP2"
+	depends on MACH_GE_IMX53_MODUL
+	help
+	  Support for ge_imx53_modul-BEP2
+
+config MACH_GE_IMX53_MMI
+	bool "Support for ge_imx53_modul-MMI"
+	depends on MACH_GE_IMX53_MODUL
+	help
+	  Support for ge_imx53_modul-MMI
+
+config MACH_GE_IMX53_BT
+	bool "Support for ge_imx53_modul-BT"
+	depends on MACH_GE_IMX53_MODUL
+	help
+	  Support for ge_imx53_modul-BT
+
+config MACH_GE_IMX53_TERA_COM
+	bool "Support for ge_imx53_modul-TERA_COM (DFU_BOX)"
+	depends on MACH_GE_IMX53_MODUL
+	help
+	  Support for ge_imx53_modul-TERA_COM (DFU_BOX)"
+
+config MACH_GE_IMX53_SIGMA2
+	bool "Support for ge_imx53_modul-sigma2"
+	depends on MACH_GE_IMX53_MODUL
+	help
+	  Support for ge_imx53_modul-SIGMA2
+
+endmenu
